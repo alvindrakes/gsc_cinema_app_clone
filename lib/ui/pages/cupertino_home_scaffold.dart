@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gsc_cinema/res/app_color.dart';
 import 'package:gsc_cinema/utils/tab_items.dart';
 
 class CupertinoHomeScaffold extends StatelessWidget {
@@ -40,7 +41,7 @@ class CupertinoHomeScaffold extends StatelessWidget {
 
   BottomNavigationBarItem _buildItem(TabItem tabItem) {
     final itemData = TabItemData.allTabs[tabItem];
-    final color = currentTab == tabItem ? Colors.yellow : Colors.grey;
+    final color = currentTab == tabItem ? AppColor.gscYellow : Colors.grey;
     return BottomNavigationBarItem(
       icon: Icon(
         itemData.icon,

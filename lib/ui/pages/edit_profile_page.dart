@@ -127,6 +127,7 @@ class EditProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CupertinoNavigationBar(
+        actionsForegroundColor: Colors.white,
         middle: Text(
           'Edit profile',
           style: AppText.kTitle,

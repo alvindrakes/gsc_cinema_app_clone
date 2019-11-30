@@ -7,11 +7,21 @@ import 'package:gsc_cinema/ui/pages/edit_profile_page.dart';
 import 'package:gsc_cinema/utils/data.dart';
 import 'package:gsc_cinema/utils/routing_constants.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  bool isClicked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CupertinoNavigationBar(
+        backgroundColor: AppColor.grey.withOpacity(
+          0.4,
+        ),
         middle: Text(
           'Me',
           style: TextStyle(color: Colors.white),
@@ -24,43 +34,98 @@ class ProfilePage extends StatelessWidget {
           _buildRow(title: 'GSC Memberships'),
           _buildRow(title: 'GSC HLB Credit Card'),
           _buildRow(title: 'About Us', icon: Icons.keyboard_arrow_down),
+          isClicked ? _buildExtras() : Container(),
           _buildRow(title: 'Log Out'),
           _buildRow(title: 'V 3.0.2'),
         ],
       ),
     );
   }
+
+  Widget _buildRow({@required String title, IconData icon}) {
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                title,
+                style: AppText.kDescription,
+              ),
+              Expanded(
+                child: Container(),
+              ),
+              icon != null
+                  ? GestureDetector(
+                      onTap: () {
+                        isClicked = !isClicked;
+                        setState(() {});
+                      },
+                      child: Icon(
+                        icon,
+                        color: Colors.white,
+                      ),
+                    )
+                  : Container(),
+            ],
+          ),
+        ),
+        Divider(
+          color: Colors.grey,
+          thickness: 1.0,
+        ),
+      ],
+    );
+  }
 }
 
-Widget _buildRow({@required String title, IconData icon}) {
-  return Column(
-    children: <Widget>[
-      Container(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              title,
-              style: AppText.kDescription,
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            icon != null
-                ? Icon(
-                    icon,
-                    color: Colors.white,
-                  )
-                : Container(),
-          ],
+Widget _buildExtras() {
+  return Container(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(
+          height: 20.0,
         ),
-      ),
-      Divider(
-        color: Colors.grey,
-        thickness: 1.0,
-      ),
-    ],
+        Padding(
+          padding: const EdgeInsets.only(left: 40.0, bottom: 20.0),
+          child: Text(
+            'Social Media',
+            style: AppText.knumber,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 40.0, bottom: 20.0),
+          child: Text(
+            'GSC website',
+            style: AppText.knumber,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 40.0, bottom: 20.0),
+          child: Text(
+            'Terms & Conditions',
+            style: AppText.knumber,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 40.0, bottom: 20.0),
+          child: Text(
+            'Privacy Policy',
+            style: AppText.knumber,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 40.0, bottom: 20.0),
+          child: Text(
+            'Contact Us',
+            style: AppText.knumber,
+          ),
+        ),
+      ],
+    ),
   );
 }
 

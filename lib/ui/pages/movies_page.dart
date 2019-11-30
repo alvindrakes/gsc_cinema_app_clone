@@ -9,7 +9,6 @@ class MoviesPage extends StatelessWidget {
   Widget _buildCarouselPoster() {
     return Expanded(
       child: Container(
-        margin: const EdgeInsets.only(top: 70.0),
         child: ListView.builder(
           physics: ScrollPhysics(),
           scrollDirection: Axis.horizontal,
@@ -76,6 +75,7 @@ class MoviesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CupertinoNavigationBar(
+        backgroundColor: Colors.black,
         middle: Text(
           'GSC cinema',
           style: TextStyle(color: Colors.white),
