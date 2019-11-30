@@ -136,6 +136,11 @@ class EditProfilePage extends StatelessWidget {
             style: TextStyle(color: Colors.white, letterSpacing: 1.0),
           ),
         ),
-        body: Container());
+        body: ListView(
+          children: <Widget>[
+            _buildUpperPart(),
+            _buildLowerPart(),
+          ],
+        ));
   }
 }
