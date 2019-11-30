@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.black,
+        splashColor: Colors.transparent,
+        dividerColor: AppColor.dividerGray,
       ),
       onGenerateRoute: router.generateRoute,
       home: HomePage(),

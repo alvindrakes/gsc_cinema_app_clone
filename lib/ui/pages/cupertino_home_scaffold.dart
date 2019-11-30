@@ -53,4 +53,18 @@ class CupertinoHomeScaffold extends StatelessWidget {
       ),
     );
   }
+
+  //   Widget _getIcon(TabItem tabItem, Color color) {
+  //   switch (tabItem) {
+  //     case TabItem.movies:
+  //       return AppIcons.movie;
+
+  //     case TabItem.me:
+  //       return AppIcons.profile;
+  //     case TabItem.cinemas:
+  //       return AppIcons.marker;
+  //     default:
+  //       return Icon(Icons.error);
+  //   }
+  // }
 }

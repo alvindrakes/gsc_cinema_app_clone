@@ -2,7 +2,9 @@ import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsc_cinema/res/app_color.dart';
+import 'package:gsc_cinema/res/app_icons.dart';
 import 'package:gsc_cinema/res/app_text.dart';
+import 'package:gsc_cinema/ui/components/custom_navigation_bar.dart';
 import 'package:gsc_cinema/ui/pages/edit_profile_page.dart';
 import 'package:gsc_cinema/utils/data.dart';
 import 'package:gsc_cinema/utils/routing_constants.dart';
@@ -19,12 +21,12 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CupertinoNavigationBar(
-        backgroundColor: AppColor.grey.withOpacity(
-          0.4,
-        ),
+        automaticallyImplyMiddle: true,
+        actionsForegroundColor: Colors.white,
+        backgroundColor: Colors.black.withOpacity(0.4),
         middle: Text(
           'Me',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, letterSpacing: 1.0),
         ),
       ),
       body: ListView(
@@ -184,10 +186,7 @@ Widget _buildProfileRow(BuildContext context) {
               builder: (context) => EditProfilePage(),
             ),
           ),
-          child: Icon(
-            Icons.edit,
-            color: Colors.white,
-          ),
+          child: AppIcons.edit,
         ),
       ],
     ),

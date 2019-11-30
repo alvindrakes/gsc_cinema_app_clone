@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsc_cinema/ui/components/carousel_poster.dart';
+import 'package:gsc_cinema/ui/components/custom_navigation_bar.dart';
 import 'package:gsc_cinema/ui/components/small_poster.dart';
 import 'package:gsc_cinema/utils/data.dart';
 import 'package:gsc_cinema/utils/device_screen.dart';
@@ -74,16 +75,9 @@ class MoviesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CupertinoNavigationBar(
-        backgroundColor: Colors.black,
-        middle: Text(
-          'GSC cinema',
-          style: TextStyle(color: Colors.white),
-        ),
-        trailing: Icon(
-          Icons.search,
-          color: Colors.white,
-        ),
+      appBar: CustomNavigationBar(
+        title: 'GSC cinema',
+        showSearch: true,
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,

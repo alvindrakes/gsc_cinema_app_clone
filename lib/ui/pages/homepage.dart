@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gsc_cinema/ui/pages/cinemas_page.dart';
 import 'package:gsc_cinema/ui/pages/cupertino_home_scaffold.dart';
 import 'package:gsc_cinema/ui/pages/movies_page.dart';
 import 'package:gsc_cinema/ui/pages/profile_page.dart';
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   Map<TabItem, WidgetBuilder> get widgetBuilders {
     return {
       TabItem.movies: (_) => MoviesPage(),
-      TabItem.cinemas: (_) => Container(),
+      TabItem.cinemas: (_) => CinemasPage(),
       TabItem.me: (_) => ProfilePage(),
     };
   }

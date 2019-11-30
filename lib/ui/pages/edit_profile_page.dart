@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsc_cinema/res/app_color.dart';
 import 'package:gsc_cinema/res/app_text.dart';
+import 'package:gsc_cinema/ui/components/custom_navigation_bar.dart';
 import 'package:gsc_cinema/utils/data.dart';
 import 'package:gsc_cinema/utils/device_screen.dart';
 
@@ -45,9 +46,9 @@ class EditProfilePage extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Name",
-              labelStyle: TextStyle(color: AppColor.lightGray),
+              labelStyle: TextStyle(color: AppColor.dividerGray),
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.lightGray),
+                borderSide: BorderSide(color: AppColor.dividerGray),
               ),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppColor.gscYellow),
@@ -61,9 +62,9 @@ class EditProfilePage extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Mobile No.",
-              labelStyle: TextStyle(color: AppColor.lightGray),
+              labelStyle: TextStyle(color: AppColor.dividerGray),
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.lightGray),
+                borderSide: BorderSide(color: AppColor.dividerGray),
               ),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppColor.gscYellow),
@@ -77,9 +78,9 @@ class EditProfilePage extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Email",
-              labelStyle: TextStyle(color: AppColor.lightGray),
+              labelStyle: TextStyle(color: AppColor.dividerGray),
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.lightGray),
+                borderSide: BorderSide(color: AppColor.dividerGray),
               ),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppColor.gscYellow),
@@ -126,19 +127,15 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CupertinoNavigationBar(
-        actionsForegroundColor: Colors.white,
-        middle: Text(
-          'Edit profile',
-          style: AppText.kTitle,
+        appBar: CupertinoNavigationBar(
+          automaticallyImplyMiddle: true,
+          actionsForegroundColor: Colors.white,
+          backgroundColor: Colors.black.withOpacity(0.4),
+          middle: Text(
+            'Edit profile',
+            style: TextStyle(color: Colors.white, letterSpacing: 1.0),
+          ),
         ),
-      ),
-      body: ListView(
-        children: <Widget>[
-          _buildUpperPart(),
-          _buildLowerPart(),
-        ],
-      ),
-    );
+        body: Container());
   }
 }
