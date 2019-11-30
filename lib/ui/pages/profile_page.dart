@@ -33,8 +33,9 @@ class _ProfilePageState extends State<ProfilePage> {
           _buildRow(title: 'My Tickets'),
           _buildRow(title: 'GSC Memberships'),
           _buildRow(title: 'GSC HLB Credit Card'),
-          _buildRow(title: 'About Us', icon: Icons.keyboard_arrow_down),
-          isClicked ? _buildExtras() : Container(),
+          _buildDropDown(
+            title: 'About Us',
+          ),
           _buildRow(title: 'Log Out'),
           _buildRow(title: 'V 3.0.2'),
         ],
@@ -42,34 +43,59 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildRow({@required String title, IconData icon}) {
+  Widget _buildDropDown({@required String title}) {
+    return GestureDetector(
+      onTap: () {
+        isClicked = !isClicked;
+        setState(() {});
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            color: Colors.transparent,
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  title,
+                  style: AppText.kDescription,
+                ),
+                Expanded(
+                  child: Container(),
+                ),
+                isClicked == true
+                    ? Icon(
+                        Icons.keyboard_arrow_up,
+                        color: Colors.white,
+                      )
+                    : Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.white,
+                      )
+              ],
+            ),
+          ),
+          isClicked ? _buildExtras() : Container(),
+          Divider(
+            color: Colors.grey,
+            thickness: 1.0,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildRow({@required String title}) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                title,
-                style: AppText.kDescription,
-              ),
-              Expanded(
-                child: Container(),
-              ),
-              icon != null
-                  ? GestureDetector(
-                      onTap: () {
-                        isClicked = !isClicked;
-                        setState(() {});
-                      },
-                      child: Icon(
-                        icon,
-                        color: Colors.white,
-                      ),
-                    )
-                  : Container(),
-            ],
+          child: Text(
+            title,
+            style: AppText.kDescription,
           ),
         ),
         Divider(
