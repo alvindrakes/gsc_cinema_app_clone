@@ -8,15 +8,18 @@ import 'package:gsc_cinema/utils/device_screen.dart';
 class MoviesPage extends StatelessWidget {
   Widget _buildCarouselPoster() {
     return Expanded(
-      child: ListView.builder(
-        physics: ScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: Data.cinemaPosterUrl.length,
-        itemBuilder: (context, index) {
-          return CarouselPoster(
-            imageUrl: Data.cinemaPosterUrl[index],
-          );
-        },
+      child: Container(
+        margin: const EdgeInsets.only(top: 70.0),
+        child: ListView.builder(
+          physics: ScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          itemCount: Data.cinemaPosterUrl.length,
+          itemBuilder: (context, index) {
+            return CarouselPoster(
+              imageUrl: Data.cinemaPosterUrl[index],
+            );
+          },
+        ),
       ),
     );
   }
@@ -81,7 +84,6 @@ class MoviesPage extends StatelessWidget {
           Icons.search,
           color: Colors.white,
         ),
-        backgroundColor: Colors.black.withOpacity(0.5),
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,

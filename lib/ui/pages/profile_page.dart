@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsc_cinema/res/app_color.dart';
 import 'package:gsc_cinema/res/app_text.dart';
+import 'package:gsc_cinema/ui/pages/edit_profile_page.dart';
 import 'package:gsc_cinema/utils/data.dart';
+import 'package:gsc_cinema/utils/routing_constants.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -14,11 +16,10 @@ class ProfilePage extends StatelessWidget {
           'Me',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: AppColor.grey,
       ),
       body: ListView(
         children: <Widget>[
-          _buildProfileRow(),
+          _buildProfileRow(context),
           _buildRow(title: 'My Tickets'),
           _buildRow(title: 'GSC Memberships'),
           _buildRow(title: 'GSC HLB Credit Card'),
@@ -63,7 +64,7 @@ Widget _buildRow({@required String title, IconData icon}) {
   );
 }
 
-Widget _buildProfileRow() {
+Widget _buildProfileRow(BuildContext context) {
   return Container(
     color: Colors.transparent,
     height: 120,
@@ -85,9 +86,17 @@ Widget _buildProfileRow() {
         Expanded(
           child: Container(),
         ),
-        Icon(
-          Icons.edit,
-          color: Colors.white,
+        GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => EditProfilePage(),
+            ),
+          ),
+          child: Icon(
+            Icons.edit,
+            color: Colors.white,
+          ),
         ),
       ],
     ),

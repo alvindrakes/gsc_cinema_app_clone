@@ -7,4 +7,6 @@ class AppText {
 
   static const TextStyle kTitle = TextStyle(
       color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0);
+  static const TextStyle knumber =
+      TextStyle(color: Colors.grey, fontSize: 12.0);
 }
