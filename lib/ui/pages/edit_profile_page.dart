@@ -43,49 +43,55 @@ class EditProfilePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TextFormField(
+            style: TextStyle(color: Colors.white),
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Name",
-              labelStyle: TextStyle(color: AppColor.dividerGray),
+              labelStyle: TextStyle(color: AppColor.textGray),
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.dividerGray),
+                borderSide: BorderSide(color: AppColor.textGray),
               ),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppColor.gscYellow),
               ),
             ),
+            initialValue: 'Alvin',
           ),
           SizedBox(
-            height: 20,
+            height: 15,
           ),
           TextFormField(
+            style: TextStyle(color: Colors.white),
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Mobile No.",
-              labelStyle: TextStyle(color: AppColor.dividerGray),
+              labelStyle: TextStyle(color: AppColor.textGray),
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.dividerGray),
+                borderSide: BorderSide(color: AppColor.textGray),
               ),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppColor.gscYellow),
               ),
             ),
+            initialValue: '012-8888777',
           ),
           SizedBox(
-            height: 5,
+            height: 15,
           ),
           TextFormField(
+            style: TextStyle(color: Colors.white),
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Email",
-              labelStyle: TextStyle(color: AppColor.dividerGray),
+              labelStyle: TextStyle(color: AppColor.textGray),
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.dividerGray),
+                borderSide: BorderSide(color: AppColor.textGray),
               ),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppColor.gscYellow),
               ),
             ),
+            initialValue: 'Alvin@gmail.com',
           ),
           SizedBox(
             height: 15,
