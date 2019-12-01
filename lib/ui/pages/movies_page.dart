@@ -8,10 +8,10 @@ import 'package:gsc_cinema/utils/device_screen.dart';
 
 class MoviesPage extends StatelessWidget {
   Widget _buildCarouselPoster() {
-    return Expanded(
+    return SliverToBoxAdapter(
       child: Container(
+        height: DeviceScreen.height * 0.45,
         child: ListView.builder(
-          physics: ScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: Data.cinemaPosterUrl.length,
           itemBuilder: (context, index) {
@@ -25,11 +25,10 @@ class MoviesPage extends StatelessWidget {
   }
 
   Widget _buildSmallPosters() {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+    return SliverToBoxAdapter(
+      child: Container(
+        height: 500,
         child: GridView.builder(
-          primary: false,
           physics: NeverScrollableScrollPhysics(),
           itemCount: Data.cinemaPosterUrl.length,
           itemBuilder: (context, index) {
@@ -49,26 +48,28 @@ class MoviesPage extends StatelessWidget {
   }
 
   Widget _buildDivider() {
-    return Row(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text(
-            'Now Showing',
-            style: TextStyle(color: Colors.white),
+    return SliverToBoxAdapter(
+      child: Row(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'Now Showing',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
-        ),
-        SizedBox(
-          width: 20.0,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text(
-            'Advance Sales',
-            style: TextStyle(color: Colors.white),
+          SizedBox(
+            width: 20.0,
           ),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'Advance Sales',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -79,13 +80,14 @@ class MoviesPage extends StatelessWidget {
         title: 'GSC cinema',
         showSearch: true,
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          _buildCarouselPoster(),
-          _buildDivider(),
-          _buildSmallPosters(),
-        ],
+      body: Container(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            _buildCarouselPoster(),
+            // _buildDivider(),
+            _buildSmallPosters(),
+          ],
+        ),
       ),
     );
   }
