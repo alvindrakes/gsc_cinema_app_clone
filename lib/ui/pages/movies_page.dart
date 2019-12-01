@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsc_cinema/ui/components/carousel_poster.dart';
 import 'package:gsc_cinema/ui/components/custom_navigation_bar.dart';
+import 'package:gsc_cinema/ui/components/custom_tab_bar.dart';
 import 'package:gsc_cinema/ui/components/small_poster.dart';
 import 'package:gsc_cinema/utils/data.dart';
 import 'package:gsc_cinema/utils/device_screen.dart';
@@ -19,29 +20,6 @@ class MoviesPage extends StatelessWidget {
               imageUrl: Data.cinemaPosterUrl[index],
             );
           },
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSmallPosters() {
-    return SliverToBoxAdapter(
-      child: Container(
-        height: 500,
-        child: GridView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: Data.cinemaPosterUrl.length,
-          itemBuilder: (context, index) {
-            return SmallPoster(
-              imageUrl: Data.cinemaPosterUrl[index],
-              movieTitle: Data.movieTitles[index],
-            );
-          },
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 0,
-            childAspectRatio: 2 / 3,
-          ),
         ),
       ),
     );
@@ -80,14 +58,14 @@ class MoviesPage extends StatelessWidget {
         title: 'GSC cinema',
         showSearch: true,
       ),
-      body: Container(
-        child: CustomScrollView(
-          slivers: <Widget>[
-            _buildCarouselPoster(),
-            // _buildDivider(),
-            _buildSmallPosters(),
-          ],
-        ),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          _buildCarouselPoster(),
+          // _buildDivider(),
+          CustomTabBar(
+            isCinema: true,
+          ),
+        ],
       ),
     );
   }
