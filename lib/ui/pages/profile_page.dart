@@ -180,10 +180,12 @@ Widget _buildProfileRow(BuildContext context) {
           child: Container(),
         ),
         GestureDetector(
-          onTap: () => Navigator.push(
-            context,
+          onTap: () => Navigator.of(context, rootNavigator: true).push(
             CupertinoPageRoute(
-              builder: (context) => EditProfilePage(),
+              builder: (
+                context,
+              ) =>
+                  EditProfilePage(),
             ),
           ),
           child: AppIcons.edit,

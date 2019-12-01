@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gsc_cinema/res/app_color.dart';
+import 'package:gsc_cinema/res/app_icons.dart';
 import 'package:gsc_cinema/utils/tab_items.dart';
 
 class CupertinoHomeScaffold extends StatelessWidget {
-  const CupertinoHomeScaffold({
+  CupertinoHomeScaffold({
     Key key,
     @required this.currentTab,
     @required this.onSelectTab,
@@ -39,14 +41,19 @@ class CupertinoHomeScaffold extends StatelessWidget {
     );
   }
 
+  SvgPicture getTabIcon(TabItem currentTab, TabItem tabItem) {
+    if (currentTab == tabItem) {
+      return _tabSelectedImages[tabItem];
+    } else {
+      return _tabImages[tabItem];
+    }
+  }
+
   BottomNavigationBarItem _buildItem(TabItem tabItem) {
     final itemData = TabItemData.allTabs[tabItem];
     final color = currentTab == tabItem ? AppColor.gscYellow : Colors.grey;
     return BottomNavigationBarItem(
-      icon: Icon(
-        itemData.icon,
-        color: color,
-      ),
+      icon: getTabIcon(currentTab, tabItem),
       title: Text(
         itemData.title,
         style: TextStyle(color: color),
@@ -54,17 +61,15 @@ class CupertinoHomeScaffold extends StatelessWidget {
     );
   }
 
-  //   Widget _getIcon(TabItem tabItem, Color color) {
-  //   switch (tabItem) {
-  //     case TabItem.movies:
-  //       return AppIcons.movie;
+  Map<TabItem, SvgPicture> _tabImages = {
+    TabItem.movies: AppIcons.movie,
+    TabItem.cinemas: AppIcons.marker,
+    TabItem.me: AppIcons.profile
+  };
 
-  //     case TabItem.me:
-  //       return AppIcons.profile;
-  //     case TabItem.cinemas:
-  //       return AppIcons.marker;
-  //     default:
-  //       return Icon(Icons.error);
-  //   }
-  // }
+  Map<TabItem, SvgPicture> _tabSelectedImages = {
+    TabItem.movies: AppIcons.movie_filled,
+    TabItem.cinemas: AppIcons.marker_filled,
+    TabItem.me: AppIcons.profile_filled,
+  };
 }
