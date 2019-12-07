@@ -26,21 +26,21 @@ class AppIcons {
     width: 24,
     height: 24,
   );
-  static Widget movie_filled = SvgPicture.asset(
+  static Widget movieFilled = SvgPicture.asset(
     'icons/movie.svg',
     semanticsLabel: 'movies_filled',
     color: AppColor.gscYellow,
     width: 24,
     height: 24,
   );
-  static final Widget marker_filled = SvgPicture.asset(
+  static final Widget markerFilled = SvgPicture.asset(
     'icons/marker.svg',
     color: AppColor.gscYellow,
     semanticsLabel: 'marker_filled',
     width: 24,
     height: 24,
   );
-  static final Widget profile_filled = SvgPicture.asset(
+  static final Widget profileFilled = SvgPicture.asset(
     'icons/profile.svg',
     color: AppColor.gscYellow,
     semanticsLabel: 'profile-filled',

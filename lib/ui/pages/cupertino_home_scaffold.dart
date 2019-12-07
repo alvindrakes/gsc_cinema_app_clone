@@ -7,12 +7,11 @@ import 'package:gsc_cinema/utils/tab_items.dart';
 
 class CupertinoHomeScaffold extends StatelessWidget {
   CupertinoHomeScaffold({
-    Key key,
     @required this.currentTab,
     @required this.onSelectTab,
     @required this.widgetBuilders,
     @required this.navigatorKeys,
-  }) : super(key: key);
+  });
 
   final TabItem currentTab;
   final ValueChanged<TabItem> onSelectTab;
@@ -68,8 +67,8 @@ class CupertinoHomeScaffold extends StatelessWidget {
   };
 
   Map<TabItem, SvgPicture> _tabSelectedImages = {
-    TabItem.movies: AppIcons.movie_filled,
-    TabItem.cinemas: AppIcons.marker_filled,
-    TabItem.me: AppIcons.profile_filled,
+    TabItem.movies: AppIcons.movieFilled,
+    TabItem.cinemas: AppIcons.markerFilled,
+    TabItem.me: AppIcons.profileFilled,
   };
 }

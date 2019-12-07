@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gsc_cinema/ui/pages/search_page.dart';
 
 class CustomNavigationBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -19,9 +20,15 @@ class CustomNavigationBar extends StatelessWidget
         style: TextStyle(color: Colors.white, letterSpacing: 1.0),
       ),
       trailing: showSearch
-          ? Icon(
-              Icons.search,
-              color: Colors.white,
+          ? GestureDetector(
+              onTap: () => Navigator.of(context, rootNavigator: true).push(
+                  CupertinoPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) => SearchPage())),
+              child: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
             )
           : Container(),
     );
