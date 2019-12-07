@@ -1,3 +1,3 @@
 # gsc_cinema
 
-A Flutter clone of Malaysia lagest Cinema's iOS app.
+A Flutter clone of Malaysia GSC Cinema's iOS app.
