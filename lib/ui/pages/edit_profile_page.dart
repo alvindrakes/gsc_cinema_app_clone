@@ -1,4 +1,3 @@
-import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsc_cinema/res/app_color.dart';
@@ -13,8 +12,11 @@ class EditProfilePage extends StatelessWidget {
       padding: const EdgeInsets.all(50.0),
       child: Column(
         children: <Widget>[
-          CircularProfileAvatar(
-            Data.profilePhoto,
+          CircleAvatar(
+            backgroundColor: Colors.white,
+            backgroundImage: NetworkImage(
+              Data.profilePhoto,
+            ),
             radius: 30,
           ),
           SizedBox(

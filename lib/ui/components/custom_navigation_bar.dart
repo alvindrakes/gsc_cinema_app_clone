@@ -14,10 +14,13 @@ class CustomNavigationBar extends StatelessWidget
     return CupertinoNavigationBar(
       automaticallyImplyMiddle: true,
       actionsForegroundColor: Colors.white,
-      backgroundColor: Colors.black.withOpacity(0.4),
-      middle: Text(
-        title,
-        style: TextStyle(color: Colors.white, letterSpacing: 1.0),
+      backgroundColor: Colors.black.withOpacity(0.01),
+      middle: Container(
+        width: 85,
+        height: 85,
+        child: Image(
+          image: AssetImage('images/logo.png'),
+        ),
       ),
       trailing: showSearch
           ? GestureDetector(

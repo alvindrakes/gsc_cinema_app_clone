@@ -1,4 +1,3 @@
-import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gsc_cinema/res/app_color.dart';
@@ -164,12 +163,12 @@ Widget _buildProfileRow(BuildContext context) {
     padding: const EdgeInsets.all(20.0),
     child: Row(
       children: <Widget>[
-        CircularProfileAvatar(
-          Data.profilePhoto,
-          radius: 30,
+        CircleAvatar(
           backgroundColor: Colors.white,
-          borderWidth: 1,
-          cacheImage: true,
+          backgroundImage: NetworkImage(
+            Data.profilePhoto,
+          ),
+          radius: 30,
         ),
         SizedBox(width: 20),
         Text(
